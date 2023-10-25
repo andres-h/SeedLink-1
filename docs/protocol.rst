@@ -208,7 +208,7 @@ BYE
 DATA [*seq* [*start_time* [*end_time*]]]
     sets the starting sequence number of station(s) that match previous STATION command. *seq* is a decimal integer in ASCII coding. If *seq* is -1 or omitted, then transfer starts from the next available packet. If the sequence number is in the future or too distant past, then it MAY be considered invalid by the server and -1 MAY be used instead. If a packet with given sequence number is not available, then the sequence number of the next available packet MUST be used by the server. Transfer of packets continues in real-time when all queued data of the station(s) have been transferred ("real-time mode").
 
-    When *start_time* and optionally, *end_time*, are given, only packets that satisfy the following conditions are considered:
+    *start_time* and *end_time* can be used when server has the TIME capability. In this case, only packets that satisfy the following conditions are considered:
 
     #. packet.seq >= *seq* (if *seq* != -1)
     #. packet.start_time < *end_time* (if *end_time* given)
